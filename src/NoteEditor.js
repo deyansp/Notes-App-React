@@ -1,6 +1,15 @@
 import React from "react";
 
 export default function NoteEditor({ activeNote, updateNote }) {
+  // empty state if no note has been selected
+  if (activeNote === undefined) {
+    return (
+      <div className="note-editor-empty">
+        <p>Select a note to view and edit.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="note-editor">
       <div className="note-editor-header">
