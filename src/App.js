@@ -34,7 +34,9 @@ export default function App() {
     setNotes([tempNotes]);
   };
 
-  const getActiveNote = () => {};
+  const getActiveNote = () => {
+    return notes.find((note) => note.id === activeNoteId);
+  };
 
   return (
     <div className="App">
@@ -44,7 +46,7 @@ export default function App() {
         activeNoteId={activeNoteId}
         setActiveNoteId={setActiveNoteId}
       />
-      <NoteEditor />
+      <NoteEditor activeNote={getActiveNote()} />
     </div>
   );
 }
