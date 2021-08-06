@@ -46,7 +46,7 @@ export default function App() {
         activeNoteId={activeNoteId}
         setActiveNoteId={setActiveNoteId}
       />
-      <NoteEditor activeNote={getActiveNote()} />
+      <NoteEditor activeNote={getActiveNote()} saveNote={saveNote} />
     </div>
   );
 }
