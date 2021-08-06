@@ -4,11 +4,18 @@ import NoteEditor from "./NoteEditor";
 import "./styles.css";
 
 export default function App() {
-  const [notes, setNotes] = useState();
+  // hook for modifying the notes array
+  const [notes, setNotes] = useState([]);
+
+  const addNote = () => {};
+
+  const saveNote = () => {};
+
+  const setActiveNote = () => {};
 
   return (
     <div className="App">
-      <NoteList />
+      <NoteList notes={notes} />
       <NoteEditor />
     </div>
   );
