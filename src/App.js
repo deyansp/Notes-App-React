@@ -21,7 +21,7 @@ export default function App() {
     const newNote = {
       // uuid is a library for generating unique IDs
       id: uuid(),
-      text: "Empty Note",
+      text: "",
       date: new Date().toLocaleString("en-GB")
     };
     // spread operator for updating the notes array
