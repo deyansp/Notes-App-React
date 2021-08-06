@@ -16,7 +16,9 @@ export default function NoteList({
       <div className="note-list-body">
         {notes.map((note) => (
           <div
-            className="note-list-item"
+            className={`note-list-item ${
+              note.id === activeNoteId && "active-note"
+            }`}
             key={note.id}
             onClick={() => setActiveNoteId(note.id)}
           >
