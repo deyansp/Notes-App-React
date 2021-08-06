@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 
 // destructuring props with { notes, etc.} as parameter
-export default function NoteList({ notes, onNewNote }) {
+export default function NoteList({
+  notes,
+  onNewNote,
+  activeNoteId,
+  setActiveNoteId
+}) {
   return (
     <div className="note-list">
       <div className="note-list-header">
@@ -10,7 +15,11 @@ export default function NoteList({ notes, onNewNote }) {
       </div>
       <div className="note-list-body">
         {notes.map((note) => (
-          <div className="note-list-item" key={note.id}>
+          <div
+            className="note-list-item"
+            key={note.id}
+            onClick={() => setActiveNoteId(note.id)}
+          >
             <div className="note-list-item-title">
               <h4>{note.text.substr(0, 25)}</h4>
             </div>

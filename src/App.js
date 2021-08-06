@@ -7,6 +7,7 @@ import "./styles.css";
 export default function App() {
   // hook for modifying the notes array
   const [notes, setNotes] = useState([]);
+  const [activeNoteId, setActiveNoteId] = useState(null);
 
   const addNote = () => {
     const newNote = {
@@ -33,11 +34,16 @@ export default function App() {
     setNotes([tempNotes]);
   };
 
-  const setActiveNote = () => {};
+  const getActiveNote = () => {};
 
   return (
     <div className="App">
-      <NoteList notes={notes} onNewNote={addNote} />
+      <NoteList
+        notes={notes}
+        onNewNote={addNote}
+        activeNoteId={activeNoteId}
+        setActiveNoteId={setActiveNoteId}
+      />
       <NoteEditor />
     </div>
   );
