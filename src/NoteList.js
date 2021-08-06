@@ -12,7 +12,7 @@ export default function NoteList({ notes, onNewNote }) {
         {notes.map((note) => (
           <div className="note-list-item" key={note.id}>
             <div className="note-list-item-title">
-              <h4>{note.text}</h4>
+              <h4>{note.text.substr(0, 25)}</h4>
             </div>
             <div className="note-list-item-date">
               <p>Created: {note.date}</p>
