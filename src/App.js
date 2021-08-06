@@ -16,8 +16,10 @@ export default function App() {
       text: "Empty Note",
       date: new Date().toLocaleString("en-GB")
     };
-    // spread operator
+    // spread operator for updating the notes array
     setNotes([newNote, ...notes]);
+    // setting the active note to the newly created one
+    setActiveNoteId(newNote.id);
   };
 
   const saveNote = (id, text) => {
@@ -31,7 +33,7 @@ export default function App() {
     tempNotes[noteIndex].text = text;
 
     // updating state
-    setNotes([tempNotes]);
+    setNotes(tempNotes);
   };
 
   const getActiveNote = () => {
@@ -40,13 +42,23 @@ export default function App() {
 
   return (
     <div className="App">
-      <NoteList
-        notes={notes}
-        onNewNote={addNote}
-        activeNoteId={activeNoteId}
-        setActiveNoteId={setActiveNoteId}
-      />
-      <NoteEditor activeNote={getActiveNote()} saveNote={saveNote} />
+      {notes.length > 0 ? (
+        <>
+          <NoteList
+            notes={notes}
+            onNewNote={addNote}
+            activeNoteId={activeNoteId}
+            setActiveNoteId={setActiveNoteId}
+          />
+          <NoteEditor activeNote={getActiveNote()} saveNote={saveNote} />
+        </>
+      ) : (
+        // empty state
+        <>
+          <h2>It's a little empty in here</h2>
+          <button onClick={addNote}>Add Note</button>
+        </>
+      )}
     </div>
   );
 }
