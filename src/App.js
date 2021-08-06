@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NoteList from "./NoteList";
 import NoteEditor from "./NoteEditor";
 import uuid from "react-uuid";
 import "./styles.css";
 
 export default function App() {
-  // hook for modifying the notes array
-  const [notes, setNotes] = useState([]);
+  // hook for modifying the notes array, set to [] if there's no data in local storage
+  const [notes, setNotes] = useState(
+    localStorage.savedNotes ? JSON.parse(localStorage.savedNotes) : []
+  );
 
   const [activeNoteId, setActiveNoteId] = useState(null);
+
+  // store data in local storage every time the notes state is changed
+  useEffect(() => {
+    localStorage.setItem("savedNotes", JSON.stringify(notes));
+  }, [notes]);
 
   const addNote = () => {
     const newNote = {
