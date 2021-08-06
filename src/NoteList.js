@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // destructuring props with { notes, etc.} as parameter
 export default function NoteList({
@@ -17,7 +17,7 @@ export default function NoteList({
         {notes.map((note) => (
           <div
             className={`note-list-item ${
-              note.id === activeNoteId && "active-note"
+              note.id === activeNoteId ? "active-note" : ""
             }`}
             key={note.id}
             onClick={() => setActiveNoteId(note.id)}

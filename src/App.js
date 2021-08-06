@@ -7,6 +7,7 @@ import "./styles.css";
 export default function App() {
   // hook for modifying the notes array
   const [notes, setNotes] = useState([]);
+
   const [activeNoteId, setActiveNoteId] = useState(null);
 
   const addNote = () => {
@@ -22,7 +23,7 @@ export default function App() {
     setActiveNoteId(newNote.id);
   };
 
-  const saveNote = (id, text) => {
+  const updateNote = (id, text) => {
     // making a copy of the notes array in state
     let tempNotes = [...notes];
 
@@ -50,7 +51,7 @@ export default function App() {
             activeNoteId={activeNoteId}
             setActiveNoteId={setActiveNoteId}
           />
-          <NoteEditor activeNote={getActiveNote()} saveNote={saveNote} />
+          <NoteEditor activeNote={getActiveNote()} updateNote={updateNote} />
         </>
       ) : (
         // empty state

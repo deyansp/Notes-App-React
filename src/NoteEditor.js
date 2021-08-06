@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function NoteEditor({ activeNote, saveNote }) {
-  const [textInput, setTextInput] = useState(activeNote.text);
-
+export default function NoteEditor({ activeNote, updateNote }) {
   return (
     <div className="note-editor">
       <div className="note-editor-header">
@@ -11,13 +9,11 @@ export default function NoteEditor({ activeNote, saveNote }) {
       <div className="note-editor-text">
         <textarea
           placehodler="Start typing here..."
-          // update internal state
-          onChange={(event) => setTextInput(event.target.value)}
-        >
-          {textInput}
-        </textarea>
+          value={activeNote.text}
+          // sending user input to parent element save method
+          onChange={(event) => updateNote(activeNote.id, event.target.value)}
+        ></textarea>
       </div>
-      <button onClick={() => saveNote(activeNote.id, textInput)}>Save</button>
     </div>
   );
 }
