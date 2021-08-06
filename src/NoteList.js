@@ -1,4 +1,5 @@
 import React from "react";
+import "./NoteList.css";
 
 // destructuring props with { notes, etc.} as parameter
 export default function NoteList({
@@ -10,8 +11,8 @@ export default function NoteList({
   return (
     <div className="note-list">
       <div className="note-list-header">
-        <h2>My Notes</h2>
-        <button onClick={onNewNote}>New Note</button>
+        <h1>My Notes</h1>
+        <button onClick={onNewNote}>Add Note</button>
       </div>
       <div className="note-list-body">
         {notes.map((note) => (
@@ -23,7 +24,11 @@ export default function NoteList({
             onClick={() => setActiveNoteId(note.id)}
           >
             <div className="note-list-item-title">
-              <h4>{note.text.substr(0, 25)}</h4>
+              <h2>
+                {note.text && note.text.length >= 22
+                  ? note.text.substr(0, 22) + "..."
+                  : note.text}
+              </h2>
             </div>
             <div className="note-list-item-date">
               <p>Created: {note.date}</p>

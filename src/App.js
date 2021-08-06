@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import NoteList from "./NoteList";
 import NoteEditor from "./NoteEditor";
 import uuid from "react-uuid";
-import "./styles.css";
+import "./App.css";
 
 export default function App() {
   // hook for modifying the notes array, set to [] if there's no data in local storage
@@ -62,10 +62,10 @@ export default function App() {
         </>
       ) : (
         // empty state
-        <>
+        <div className="empty-state">
           <h2>It's a little empty in here</h2>
           <button onClick={addNote}>Add Note</button>
-        </>
+        </div>
       )}
     </div>
   );

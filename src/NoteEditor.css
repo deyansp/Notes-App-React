@@ -1,0 +1,44 @@
+.note-editor-empty {
+  width: 70%;
+  height: 100vh;
+  line-height: 100vh;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.note-editor {
+  width: 70%;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.note-editor-header {
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid #ddd;
+  background-color: #ececec63;
+}
+
+.note-editor-text {
+  padding: 0.5rem 1rem;
+}
+
+.note-editor-text p {
+  padding: 0rem 1rem;
+  font-weight: 700;
+}
+
+.note-editor-text textarea {
+  display: block;
+  border: 2px solid #b9b9b9;
+  width: 100%;
+  height: 40vh;
+  padding: 0.5rem 1rem;
+  font-size: inherit;
+  font-family: inherit;
+  border-radius: 1rem;
+}
+
+.note-editor-text textarea:focus {
+  border-radius: 1rem;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./NoteEditor.css";
 
 export default function NoteEditor({ activeNote, updateNote }) {
   // empty state if no note has been selected
@@ -13,9 +14,11 @@ export default function NoteEditor({ activeNote, updateNote }) {
   return (
     <div className="note-editor">
       <div className="note-editor-header">
-        <h2>Edit Note</h2>
+        <h1>Edit Note</h1>
+        <p>Auto saves as you type</p>
       </div>
       <div className="note-editor-text">
+        <p>Note Text:</p>
         <textarea
           placehodler="Start typing here..."
           value={activeNote.text}
