@@ -27,7 +27,9 @@
 }
 
 .note-list-item:hover {
-  background-color: #807fce54;
+  background: #ff9582;
+  border: 2px solid #d16451;
+  color: #fff;
 }
 
 .note-list-item p {
@@ -35,11 +37,12 @@
 }
 
 .active-note {
-  background: #5161d1;
-  border: 2px solid #5161d1;
+  background: #d16451;
+  border: 2px solid #d16451;
   color: #fff;
 }
 
 .active-note:hover {
-  background: #5161d1;
+  background: #ff9582;
+  border: 2px solid #d16451;
 }
